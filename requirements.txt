@@ -1,0 +1,5 @@
+google-oauth2-tool
+google-cloud
+google-auth-oauthlib
+google-api-python-client
+google-cloud-storage
