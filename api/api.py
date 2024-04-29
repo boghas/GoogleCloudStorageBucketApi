@@ -2,12 +2,6 @@ import os
 from google.cloud import storage
 from google.cloud.exceptions import NotFound
 from google.cloud.exceptions import Forbidden
-#from google.oauth2 import service_account
-
-
-
-def load_credentials():
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'credentials\duag-masc-stg-01-ops.json'
 
 
 def list_bucket_files(storage_client: storage.Client, bucket_name: str, directory=None | str) -> list:
