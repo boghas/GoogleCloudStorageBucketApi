@@ -3,7 +3,7 @@ import shutil
 import logging
 from dotenv import load_dotenv
 from api import api
-from sftp import sftp
+from server import server
 from google.cloud import storage
 
 
@@ -25,14 +25,14 @@ if __name__ == "__main__":
 
     files = api.list_bucket_files(storage_client, bucket_name, bucket_dir)
 
-    api.download_blobs(storage_client, bucket_name, files, local_download_path)
+    api.download_and_delete_blobs(storage_client, bucket_name, files, local_download_path)
 
-    sftp = sftp.connect_to_sftp(hostname, username, password, port)
+    sftp = server.connect_to_sftp(hostname, username, password, int(port))
 
     for file in os.listdir(local_download_path):
         file_path = os.path.join(local_download_path, file)
         try:
-            sftp.upload_file(sftp, file_path, remote_dir)
+            server.upload_file(sftp, file_path, remote_dir)
             os.remove(file_path)
         except Exception as e:
             print(e)

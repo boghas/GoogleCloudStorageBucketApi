@@ -32,7 +32,7 @@ def download_and_delete_blobs(storage_client: storage.Client, bucket_name: str, 
             blob = bucket.blob(blob)
             blob.download_to_filename(os.path.join(local_download_dir, os.path.basename(blob.name)))
             print(f'Successfully downloaded {blob.name} to {os.path.join(local_download_dir, os.path.basename(blob.name))}')
-            delete_blob(blob)
+            #delete_blob(blob)
     except NotFound:
         print('Bucket not found!')
     except Forbidden:
