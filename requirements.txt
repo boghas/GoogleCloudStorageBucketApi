@@ -3,5 +3,5 @@ google-cloud
 google-auth-oauthlib
 google-api-python-client
 google-cloud-storage
-python-dotenvgit
+python-dotenv
 paramiko
