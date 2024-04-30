@@ -3,6 +3,7 @@ import shutil
 import logging
 from dotenv import load_dotenv
 from api import api
+from sftp import sftp
 from google.cloud import storage
 
 
@@ -16,7 +17,7 @@ if __name__ == "__main__":
 
     # Setup the client
     storage_client = storage.Client()
-    
+
     files = api.list_bucket_files(storage_client, bucket_name, bucket_dir)
     print(files)
 
